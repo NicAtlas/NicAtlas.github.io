@@ -17,10 +17,10 @@ title: Nic Atlas
 email: nicholasaatlas@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   My Personal Website
-baseurl: "/game" # the subpath of your site, e.g. /blog
-url: "https://nicatlas.me" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/hitchens" # the subpath of your site, e.g. /blog
+url: "https://patdryburgh.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 icon: /assets/images/pic.jpg
-twitter_username: 
+twitter_username: twitter
 github_username:  NicAtlas
 
 # Build settings
