@@ -1,6 +1,0 @@
----
-layout: GameOne
-title: Game
----
-
-

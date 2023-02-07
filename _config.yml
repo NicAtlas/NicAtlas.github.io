@@ -1,18 +1,22 @@
+# Setup
+title:               Lanyon
+tagline:             'A Jekyll theme'
+description:         'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:                 http://lanyon.getpoole.com
+baseurl:             ''
+paginate:            5
+permalink:           pretty
 
-title: Nic Atlas
-email: nicholasaatlas@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  My Personal Website
-url: "https://nicatlas.me" # the base hostname & protocol for your site, e.g. http://example.com
-icon: favicon.ico
-twitter_username: twitter
-github_username:  NicAtlas
+# About/contact
+author:
+  name:              Mark Otto
+  url:               https://twitter.com/mdo
+  email:             markdotto@gmail.com
 
-# Build settings
-markdown: kramdown
-
+# Gems
 plugins:
   - jekyll-paginate
 
-paginate: 3
-paginate_path: "/page/:num/"
+# Custom vars
+version:             1.1.0
+google_analytics_id: #UA-XXXX-Y
