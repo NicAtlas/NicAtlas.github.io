@@ -4,7 +4,7 @@ email: nicholasaatlas@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   My Personal Website
 url: "https://nicatlas.me" # the base hostname & protocol for your site, e.g. http://example.com
-icon: /assets/images/pic.jpg
+icon: favicon.ico
 twitter_username: twitter
 github_username:  NicAtlas
 
