@@ -1,6 +1,6 @@
 # Setup
 title:               'Nic Atlas'
-tagline:             'Website'
+tagline:             'My Website'
 description:         'This website serves as a hub for some of my fun, tech-related projects and endeavors. Check out my GitHub!  <a href="https://github.com/NicAtlas" target="_blank">@NicAtlas</a> :)'
 url:                 https://nicatlas.me
 baseurl:             ''
@@ -10,7 +10,7 @@ permalink:           pretty
 # About/contact
 author:
   name:              Nic Atlas
-  url:               https://twitter.com/
+  url:               https://github.com/NicAtlas
   email:             nicholasaatlas@gmail.com
 
 # Gems
