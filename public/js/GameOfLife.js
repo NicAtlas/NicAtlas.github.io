@@ -1,93 +1,108 @@
-// initializes the canvas
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
-
-// this defines the size of the grid
 const gridSize = 10;
 const cellSize = 50;
-
-// creates a two-dimensional array to store the binary cell states
 let grid = [];
-resetGrid();
+let isInteractive = true;
+let isRunning = false;
 
-// Draws the grid based on the current state of the cells
-function drawGrid() {
-  for (let row = 0; row < gridSize; row++) {
-    for (let col = 0; col < gridSize; col++) {
-      // set the fill style based on the cell state (1 = alive, 0 = dead)
-      ctx.fillStyle = grid[row][col] === 1 ? 'black' : 'white';
-      // draw a rectangle to represent the cell
-      ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-    }
+initializeGrid();
+
+// Add event listener to start button
+const startButton = document.getElementById('start-button');
+startButton.addEventListener('click', startGame);
+
+// Add event listener to reset button
+const resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', resetGame);
+
+canvas.addEventListener('mousedown', (event) => {
+  if (!isInteractive || isRunning) {
+    return;
   }
-}
-
-// Updates the state of the cells based on the rules of the Game of Life
-function updateGrid() {
-  let newGrid = [];
-  for (let row = 0; row < gridSize; row++) {
-    newGrid[row] = [];
-    for (let col = 0; col < gridSize; col++) {
-      // Count the number of live neighbors for the current cell
-      let liveNeighbors = 0;
-      for (let i = -1; i <= 1; i++) {
-        for (let j = -1; j <= 1; j++) {
-          if (i === 0 && j === 0) {
-            continue;
-          }
-          let x = col + i;
-          let y = row + j;
-          if (x >= 0 && x < gridSize && y >= 0 && y < gridSize) {
-            liveNeighbors += grid[y][x];
-          }
-        }
-      }
-
-      // Update the state of the cell based on the number of live neighbors
-      if (grid[row][col] === 1 && (liveNeighbors < 2 || liveNeighbors > 3)) {
-        // cell dies from underpopulation or overpopulation
-        newGrid[row][col] = 0;
-      } else if (grid[row][col] === 0 && liveNeighbors === 3) {
-        // cell comes to life due to reproduction
-        newGrid[row][col] = 1;
-      } else {
-        // cell state remains unchanged
-        newGrid[row][col] = grid[row][col];
-      }
-    }
+  const row = Math.floor(event.offsetY / cellSize);
+  const col = Math.floor(event.offsetX / cellSize);
+  if (row >= 0 && row < gridSize && col >= 0 && col < gridSize) {
+    grid[row][col] = 1 - grid[row][col];
+    drawGrid();
   }
-  // update the current state of the cells
-  grid = newGrid;
-}
+});
 
-// Resets the grid with random cell states
-function resetGrid() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function initializeGrid() {
+  grid = [];
   for (let row = 0; row < gridSize; row++) {
     grid[row] = [];
     for (let col = 0; col < gridSize; col++) {
-      // initialize each cell with a dead state
       grid[row][col] = 0;
     }
   }
   drawGrid();
 }
 
-// Add event listener to reset button
-const resetButton = document.getElementById('reset-button');
-resetButton.addEventListener('click', resetGrid);
-
-// Add event listener to start button
-const startButton = document.getElementById('start-button');
-startButton.addEventListener('click', startGame);
-
-// Starts the Game of Life
 function startGame() {
-  // Add event listener for mouse clicks on the canvas
-  canvas.addEventListener('click', handleCanvasClick);
-  // update the grid every 100 milliseconds
-  setInterval(() => {
+  isInteractive = false;
+  isRunning = true;
+  startButton.disabled = true;
+  resetButton.disabled = false;
+  runSimulation();
+}
+
+function resetGame() {
+  isInteractive = true;
+  isRunning = false;
+  startButton.disabled = false;
+  resetButton.disabled = true;
+  initializeGrid();
+}
+
+function drawGrid() {
+  for (let row = 0; row < gridSize; row++) {
+    for (let col = 0; col < gridSize; col++) {
+      ctx.fillStyle = grid[row][col] === 1 ? 'black' : 'white';
+      ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+    }
+  }
+}
+
+function runSimulation() {
+  if (isRunning) {
     updateGrid();
     drawGrid();
-  }, 100);
+    setTimeout(runSimulation, 100);
+  }
+}
+
+function updateGrid() {
+  let newGrid = [];
+  for (let row = 0; row < gridSize; row++) {
+    newGrid[row] = [];
+    for (let col = 0; col < gridSize; col++) {
+      let liveNeighbors = countLiveNeighbors(row, col);
+      if (grid[row][col] === 1 && (liveNeighbors < 2 || liveNeighbors > 3)) {
+        newGrid[row][col] = 0;
+      } else if (grid[row][col] === 0 && liveNeighbors === 3) {
+        newGrid[row][col] = 1;
+      } else {
+        newGrid[row][col] = grid[row][col];
+      }
+    }
+  }
+  grid = newGrid;
+}
+
+function countLiveNeighbors(row, col) {
+  let liveNeighbors = 0;
+  for (let i = -1; i <= 1; i++) {
+    for (let j = -1; j <= 1; j++) {
+      if (i === 0 && j === 0) {
+        continue;
+      }
+      let x = col + i;
+      let y = row + j;
+      if (x >= 0 && x < gridSize && y >= 0 && y < gridSize) {
+        liveNeighbors += grid[y][x];
+      }
+    }
+  }
+  return liveNeighbors;
 }
