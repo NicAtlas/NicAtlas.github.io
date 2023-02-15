@@ -62,11 +62,12 @@ function updateGrid() {
 
 // Resets the grid with random cell states
 function resetGrid() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let row = 0; row < gridSize; row++) {
     grid[row] = [];
     for (let col = 0; col < gridSize; col++) {
-      // initialize each cell with a random state
-      grid[row][col] = Math.round(Math.random());
+      // initialize each cell with a dead state
+      grid[row][col] = 0;
     }
   }
   drawGrid();
@@ -76,8 +77,17 @@ function resetGrid() {
 const resetButton = document.getElementById('reset-button');
 resetButton.addEventListener('click', resetGrid);
 
-// updates the grid every 100 milliseconds
-setInterval(() => {
-  updateGrid();
-  drawGrid();
-}, 100);
+// Add event listener to start button
+const startButton = document.getElementById('start-button');
+startButton.addEventListener('click', startGame);
+
+// Starts the Game of Life
+function startGame() {
+  // Add event listener for mouse clicks on the canvas
+  canvas.addEventListener('click', handleCanvasClick);
+  // update the grid every 100 milliseconds
+  setInterval(() => {
+    updateGrid();
+    drawGrid();
+  }, 100);
+}
