@@ -1,29 +1,30 @@
 ---
 layout: page
-title: About
+title: About Me
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+# <font color='red'>High School</font>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+I went to Parkland High School in Allentown, Pennsylvania.
 
-There are currently two themes built on Poole:
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+# <font color='green'>College</font>
 
-## Setup
+I am currently set to graduate from Lehigh University May 2025. I am studying Computer Science & Business. My favorite classes so far 
+have been Programming Languages and Software Engineering. 
 
-Some fun facts about the setup of this project include:
 
-* Built for [Jekyll](https://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Atom](https://atom.io)
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
+# <font color='blue'>Career Interests</font>
 
-Thanks for reading!
+My interests in the tech industry are diverse, ranging from fintech and software engineering to cybersecurity, AI, blockchain, the internet of things, and beyond. I possess a willingness to continuously expand my knowledge and skill set, and I am always eager to learn new things in this dynamic and constantly evolving field. I aspire to leverage my business knowledge to contribute towards the success of a company.
+
+
+# <font color='purple'>Fun Fact</font>
+
+I love spaghetti!
+
+
+
+
