@@ -5,7 +5,7 @@ const cellSize = 50;
 let grid = [];
 let isInteractive = true;
 let isRunning = false;
-
+alert("Hello, World!");
 initializeGrid();
 
 // Add event listener to start button
