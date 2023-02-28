@@ -1,8 +1,10 @@
-document.addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('game');
   const ctx = canvas.getContext('2d');
   const gridSize = 10;
   const cellSize = 50;
+  const cellPadding = 1;
+  const gridColor = "#CCCCCC";
   let grid = [];
   let isInteractive = true;
   let isRunning = false;
@@ -57,10 +59,24 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
   function drawGrid() {
+    ctx.fillStyle = gridColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     for (let row = 0; row < gridSize; row++) {
       for (let col = 0; col < gridSize; col++) {
         ctx.fillStyle = grid[row][col] === 1 ? 'black' : 'white';
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        ctx.fillRect(
+          col * cellSize + cellPadding,
+          row * cellSize + cellPadding,
+          cellSize - cellPadding * 2,
+          cellSize - cellPadding * 2
+        );
+        ctx.strokeStyle = gridColor;
+        ctx.strokeRect(
+          col * cellSize + cellPadding,
+          row * cellSize + cellPadding,
+          cellSize - cellPadding * 2,
+          cellSize - cellPadding * 2
+        );
       }
     }
   }
@@ -69,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     if (isRunning) {
       updateGrid();
       drawGrid();
-      setTimeout(runSimulation, 100);
+      setTimeout(runSimulation, 200);
     }
   }
 
@@ -88,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         }
       }
     }
-    grid = newGrid;
+    grid =newGrid;
   }
 
   function countLiveNeighbors(row, col) {
