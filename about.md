@@ -23,7 +23,7 @@ My interests in the tech industry are diverse, ranging from fintech and software
 
 # <font color='purple'>Fun Fact</font>
 
-I love spaghetti!
+I love golf, chess, and marshmallows
 
 
 
