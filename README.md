@@ -11,6 +11,11 @@ Lanyon has two branches, but only one is used for active development.
 - `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
 
 
+
+## Website Author
+**Nic Atlas**
+- <https://github.com/nicatlas>
+
 ## Jekyll Theme Author
 
 **Mark Otto**

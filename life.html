@@ -14,14 +14,19 @@ title: The Game Of Life
     <button id="reset-button">Reset</button>
     <button id="start-button">Start</button>
     <hr>
-    <p>The Game of Life is a cellular automaton that simulates the life and death of cells in a grid. 
-      The game is played on a two-dimensional grid, where each cell is either alive or dead. The cells 
-      evolve over time, following a set of rules, which determine whether a cell lives or dies in the next 
-      generation. The rules are based on the number of living cells in the surrounding cells of a given cell.
-      In this particular implementation, cells are represented as squares on a canvas. You can select the starting point
-      and then every transformation after follows a deterministic formula to expand and contract. If a cell has fewer than two or 
-        more than three live neighbors, it dies of underpopulation or  overpopulation, respectively. If a dead cell 
-        has exactly three live neighbors, it comes to life due to reproduction. The game continues to evolve with each new generation of cells, 
-        creating visually interesting and complex patterns. Try some random starting positions out!</p>
+	<div id="game-container">
+		<h1>Welcome to the Game of Life!</h1>
+	
+		<div id="game-description">
+		  <p>Explore the fascinating world of cellular automata in the Game of Life. Watch as cells come to life, evolve, and form intricate patterns on a two-dimensional grid. Create your own starting point and witness the mesmerizing transformations as the game follows simple rules.</p>
+	
+		  <p>Represented as squares on a canvas, each cell's destiny is determined by its neighbors. Experiment with different initial configurations and see how the game unfolds. If a cell is underpopulated or overpopulated, it dies. On the other hand, a dead cell with exactly three live neighbors comes to life through reproduction.</p>
+	
+		  <p>The canvas awaits your creativity! Dive in and discover the endless possibilities of this captivating cellular automaton.</p>
+
+		  <div id="canvas-instructions">
+			Try clicking and dragging to create your own starting pattern!
+		  </div>
+
   </body>
 </html>
