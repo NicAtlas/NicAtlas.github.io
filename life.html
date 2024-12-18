@@ -15,6 +15,7 @@ title: The Game Of Life
       .pattern-card {
         text-align: center;
         width: 30%;
+        cursor: pointer;
       }
       .pattern-card img {
         max-width: 100%;
@@ -22,6 +23,11 @@ title: The Game Of Life
         border: 1px solid #ccc;
         border-radius: 4px;
         margin-bottom: 10px;
+        transition: transform 0.2s;
+      }
+      .pattern-card img:hover {
+        transform: scale(1.05);
+        border-color: #666;
       }
     </style>
   </head>
@@ -36,22 +42,22 @@ title: The Game Of Life
           <h3>Try These Classic Patterns:</h3>
           <div class="pattern-gallery">
             <div class="pattern-card">
-              <img src="{{ site.baseurl }}/public/Pentomino.png" alt="Pentomino Pattern">
+              <img src="{{ site.baseurl }}/public/Pentomino.png" alt="Pentomino Pattern" data-pattern="pentomino">
               <p><strong>Pentomino</strong><br>A small pattern that grows into a larger, stable configuration</p>
             </div>
             <div class="pattern-card">
-              <img src="{{ site.baseurl }}/public/PulsarSeed.png" alt="Pulsar Pattern">
+              <img src="{{ site.baseurl }}/public/PulsarSeed.png" alt="Pulsar Pattern" data-pattern="pulsar">
               <p><strong>Pulsar</strong><br>Creates a mesmerizing oscillating pattern</p>
             </div>
             <div class="pattern-card">
-              <img src="{{ site.baseurl }}/public/TheEyes.png" alt="The Eyes Pattern">
+              <img src="{{ site.baseurl }}/public/TheEyes.png" alt="The Eyes Pattern" data-pattern="eyes">
               <p><strong>The Eyes</strong><br>Watch this pattern evolve into something unexpected</p>
             </div>
           </div>
         </div>
 
         <div id="canvas-instructions">
-          <p>Click and drag on the canvas to draw your own pattern, or click one of the patterns above to try them!</p>
+          <p>Click any pattern above to load it, or click and drag on the canvas to draw your own!</p>
         </div>
       </div>
     </div>

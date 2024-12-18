@@ -9,7 +9,36 @@ document.addEventListener('DOMContentLoaded', () => {
   let isInteractive = true;
   let isRunning = false;
 
+  // Predefined patterns
+  const patterns = {
+    pentomino: [
+      [0, 1, 1],
+      [1, 1, 0],
+      [0, 1, 0]
+    ],
+    pulsar: [
+      [1, 1, 1],
+      [1, 1, 1],
+      [1, 1, 1]
+    ],
+    eyes: [
+      [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+      [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+      [1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
+    ]
+  };
+
   initializeGrid();
+
+  // Add event listeners to pattern images
+  document.querySelectorAll('.pattern-card img').forEach(img => {
+    img.addEventListener('click', (event) => {
+      const patternName = event.target.dataset.pattern;
+      if (patterns[patternName]) {
+        loadPattern(patternName);
+      }
+    });
+  });
 
   // Add event listener to start button
   const startButton = document.getElementById('start-button');
@@ -18,6 +47,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add event listener to reset button
   const resetButton = document.getElementById('reset-button');
   resetButton.addEventListener('click', resetGame);
+
+  function loadPattern(patternName) {
+    if (!isInteractive || isRunning) return;
+    
+    resetGame();
+    const pattern = patterns[patternName];
+    
+    // Calculate center position for the pattern
+    const startRow = Math.floor((gridSize - pattern.length) / 2);
+    const startCol = Math.floor((gridSize - pattern[0].length) / 2);
+    
+    // Special case for eyes pattern which goes at the top
+    const finalStartRow = patternName === 'eyes' ? 0 : startRow;
+    
+    // Load the pattern into the grid
+    for (let i = 0; i < pattern.length; i++) {
+      for (let j = 0; j < pattern[i].length; j++) {
+        if (finalStartRow + i < gridSize && startCol + j < gridSize) {
+          grid[finalStartRow + i][startCol + j] = pattern[i][j];
+        }
+      }
+    }
+    drawGrid();
+  }
 
   canvas.addEventListener('mousedown', (event) => {
     if (!isInteractive || isRunning) {
