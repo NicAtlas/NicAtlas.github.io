@@ -8,25 +8,33 @@ title: The Game Of Life
     <title>The Game of Life</title>
   </head>
   <body>
+    <div id="game-container">
+      <h1>Conway's Game of Life</h1>
+    
+      <div id="game-description">
+        <p>Welcome to Conway's Game of Life, a fascinating cellular automaton where simple rules create complex patterns. Cells live or die based on their neighbors - too few or too many neighbors cause death, while just the right amount allows survival and reproduction.</p>
+
+        <div id="starting-patterns">
+          <h3>Try These Classic Patterns:</h3>
+          <ul>
+            <li><strong>Pentomino</strong> - A small pattern that grows into a larger, stable configuration</li>
+            <li><strong>Pulsar</strong> - Creates a mesmerizing oscillating pattern</li>
+            <li><strong>The Eyes</strong> - Watch this pattern evolve into something unexpected</li>
+          </ul>
+        </div>
+
+        <div id="canvas-instructions">
+          <p>Click and drag on the canvas to draw your own pattern, or try one of the classics above!</p>
+        </div>
+      </div>
+    </div>
+
     <canvas id="game" width="500" height="500"></canvas>
     <script src="{{ site.baseurl }}/public/js/GameOfLife.js"></script>
     <hr>
     <button id="reset-button">Reset</button>
     <button id="start-button">Start</button>
     <hr>
-	<div id="game-container">
-		<h1>Welcome to the Game of Life!</h1>
-	
-		<div id="game-description">
-		  <p>Explore the fascinating world of cellular automata in the Game of Life. Watch as cells come to life, evolve, and form intricate patterns on a two-dimensional grid. Create your own starting point and witness the mesmerizing transformations as the game follows simple rules.</p>
-	
-		  <p>Represented as squares on a canvas, each cell's destiny is determined by its neighbors. Experiment with different initial configurations and see how the game unfolds. If a cell is underpopulated or overpopulated, it dies. On the other hand, a dead cell with exactly three live neighbors comes to life through reproduction.</p>
-	
-		  <p>The canvas awaits your creativity! Dive in and discover the endless possibilities of this captivating cellular automaton.</p>
-
-		  <div id="canvas-instructions">
-			Try clicking and dragging to create your own starting pattern!
-		  </div>
 
   </body>
 </html>
