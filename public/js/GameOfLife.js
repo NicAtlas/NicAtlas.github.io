@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let grid = [];
   let isInteractive = true;
   let isRunning = false;
+  let isDrawing = false;
 
   // Predefined patterns
   const patterns = {
@@ -48,6 +49,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetButton = document.getElementById('reset-button');
   resetButton.addEventListener('click', resetGame);
 
+  // Mouse event listeners for drawing
+  canvas.addEventListener('mousedown', startDrawing);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', stopDrawing);
+  canvas.addEventListener('mouseleave', stopDrawing);
+
+  function startDrawing(event) {
+    if (!isInteractive || isRunning) return;
+    isDrawing = true;
+    const { row, col } = getCellCoordinates(event);
+    if (isValidCell(row, col)) {
+      grid[row][col] = 1 - grid[row][col]; // Toggle cell state
+      drawGrid();
+    }
+  }
+
+  function draw(event) {
+    if (!isDrawing || !isInteractive || isRunning) return;
+    const { row, col } = getCellCoordinates(event);
+    if (isValidCell(row, col)) {
+      grid[row][col] = 1; // Set cell to alive while dragging
+      drawGrid();
+    }
+  }
+
+  function stopDrawing() {
+    isDrawing = false;
+  }
+
+  function getCellCoordinates(event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    return {
+      row: Math.floor(y / cellSize),
+      col: Math.floor(x / cellSize)
+    };
+  }
+
+  function isValidCell(row, col) {
+    return row >= 0 && row < gridSize && col >= 0 && col < gridSize;
+  }
+
   function loadPattern(patternName) {
     if (!isInteractive || isRunning) return;
     
@@ -71,18 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     drawGrid();
   }
-
-  canvas.addEventListener('mousedown', (event) => {
-    if (!isInteractive || isRunning) {
-      return;
-    }
-    const row = Math.floor(event.offsetY / cellSize);
-    const col = Math.floor(event.offsetX / cellSize);
-    if (row >= 0 && row < gridSize && col >= 0 && col < gridSize) {
-      grid[row][col] = 1 - grid[row][col];
-      drawGrid();
-    }
-  });
 
   function initializeGrid() {
     grid = [];
@@ -157,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-    grid =newGrid;
+    grid = newGrid;
   }
 
   function countLiveNeighbors(row, col) {
@@ -176,5 +208,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return liveNeighbors;
   }
-
 });
