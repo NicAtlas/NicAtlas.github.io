@@ -6,6 +6,24 @@ title: The Game Of Life
 <html>
   <head>
     <title>The Game of Life</title>
+    <style>
+      .pattern-gallery {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+      }
+      .pattern-card {
+        text-align: center;
+        width: 30%;
+      }
+      .pattern-card img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
     <div id="game-container">
@@ -16,15 +34,24 @@ title: The Game Of Life
 
         <div id="starting-patterns">
           <h3>Try These Classic Patterns:</h3>
-          <ul>
-            <li><strong>Pentomino</strong> - A small pattern that grows into a larger, stable configuration</li>
-            <li><strong>Pulsar</strong> - Creates a mesmerizing oscillating pattern</li>
-            <li><strong>The Eyes</strong> - Watch this pattern evolve into something unexpected</li>
-          </ul>
+          <div class="pattern-gallery">
+            <div class="pattern-card">
+              <img src="{{ site.baseurl }}/public/Pentomino.png" alt="Pentomino Pattern">
+              <p><strong>Pentomino</strong><br>A small pattern that grows into a larger, stable configuration</p>
+            </div>
+            <div class="pattern-card">
+              <img src="{{ site.baseurl }}/public/PulsarSeed.png" alt="Pulsar Pattern">
+              <p><strong>Pulsar</strong><br>Creates a mesmerizing oscillating pattern</p>
+            </div>
+            <div class="pattern-card">
+              <img src="{{ site.baseurl }}/public/TheEyes.png" alt="The Eyes Pattern">
+              <p><strong>The Eyes</strong><br>Watch this pattern evolve into something unexpected</p>
+            </div>
+          </div>
         </div>
 
         <div id="canvas-instructions">
-          <p>Click and drag on the canvas to draw your own pattern, or try one of the classics above!</p>
+          <p>Click and drag on the canvas to draw your own pattern, or click one of the patterns above to try them!</p>
         </div>
       </div>
     </div>
