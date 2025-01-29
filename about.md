@@ -3,29 +3,23 @@ layout: page
 title: About Me
 ---
 
-# <font color='purple'>High School</font>
+# Building & Learning
 
-I went to Parkland High School in Allentown, Pennsylvania.
+I'm a Computer Science & Business student at Lehigh University, where I blend technical expertise with business acumen. My journey spans from crafting AI models for environmental data to optimizing large-scale web applications in San Francisco's startup ecosystem.
 
+# Technical Journey
 
+My path in software engineering has been shaped by real-world challenges. At PairAnything, I transformed their WordPress infrastructure and built engaging user interfaces. With Studio Corsair, I dove deep into payment systems and e-commerce solutions. As an AI Research Fellow, I developed predictive models that made environmental data more accessible and actionable.
+I recently completed a capstone project with Air Products, where I successfully bridged the gap between legacy Excel systems and modern Python applications, enhancing data accessibility for engineers worldwide. Currently, I am leveraging AI to develop practical solutions that address complex engineering challenges, further solidifying my expertise in creating innovative software solutions.
 
-# <font color='purple'>College</font>
+# Beyond Code
 
-I am currently set to graduate from Lehigh University May 2025. I am studying Computer Science & Business. My favorite classes so far 
-have been Programming Languages and Software Engineering. 
+When I'm not coding, you'll find me:
+- Playing chess (always up for a challenge)
+- Improving my golf swing
+- Contributing to open-source projects
+- Exploring new technologies in AI and blockchain
 
+# Let's Connect
 
-
-
-# <font color='purple'>Career Interests</font>
-
-My interests in the tech industry are diverse, ranging from fintech and software engineering to cybersecurity, AI, blockchain, machine learning, and beyond. I possess a willingness to continuously expand my knowledge and skill set, and I am always eager to learn new things in this constantly evolving field. I aspire to leverage my business knowledge to contribute towards the success of a company.
-
-
-# <font color='purple'>Fun Fact</font>
-
-I love golf, chess, and marshmallows
-
-
-
-
+I'm always excited to discuss technology, collaborate on projects, or share ideas about the future of software engineering. Feel free to reach out on [LinkedIn](https://www.linkedin.com/in/nicholas-atlas) or check out my projects on [GitHub](https://github.com/NicAtlas).
