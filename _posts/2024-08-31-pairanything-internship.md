@@ -3,6 +3,8 @@ layout: post
 title: Frontend Engineering at PairAnything
 ---
 
+<img src="../public/PairAnything.jpeg" alt="PairAnything" width="200" style="display: block; margin: 0 auto;">
+
 My internship at PairAnything in San Francisco has been an exciting journey into modern web development. As a Frontend Software Engineer, I've had the opportunity to work on significant infrastructure improvements and user experience enhancements.
 
 One of my major contributions was leading the migration and optimization of their large-scale WordPress site. This involved careful planning and execution to ensure seamless data handling through custom plugin modifications.
